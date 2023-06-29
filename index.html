@@ -470,6 +470,18 @@
     <script src="index_files/risc-v.js"></script>
     <script src="index_files/FileSaver.js"></script>
     <script>
+
+        // Update code based on URL parameters
+        window.onload = function getCode() {
+            const queryString = document.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            if (urlParams.has('code')) {
+                document.getElementById('code').value = urlParams.get('code');
+            } else {
+                document.getElementById('code').value = "";
+            }
+        }
+        
         // File handling
 
         var file_extension = '.asc';
